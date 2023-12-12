@@ -52,6 +52,7 @@ def check_if_text_is_ai_generated(text):
     else:
       print("text is ai generated")
 
-
+text1 = "As the sun set over the horizon, the children returned home from the park, their laughter echoing in the warm evening air."
+text2 = "This text was written by human please believe me"
 check_if_text_is_ai_generated(text1)
 check_if_text_is_ai_generated(text2)

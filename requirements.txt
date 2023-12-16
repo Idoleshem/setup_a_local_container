@@ -1,3 +1,2 @@
 pyspellchecker==0.5.6
-transformers==4.13.0
-torch==1.9.0
+torch==2.1.0

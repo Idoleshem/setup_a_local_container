@@ -1,7 +1,8 @@
-from transformers import GPT2LMHeadModel, GPT2Tokenizer
-import torch
 import re
+import torch
 from spellchecker import SpellChecker
+from transformers import GPT2LMHeadModel, GPT2Tokenizer
+
 def average_amount_of_typos(text):
     spell = SpellChecker()
 
@@ -42,17 +43,13 @@ def get_perplexity(text):
 def check_if_text_is_ai_generated(text):
 
     amount_of_typos = average_amount_of_typos(text)
+    
     perplexity = get_perplexity(text)
-
-    print(amount_of_typos)
-    print(f"Perplexity: {perplexity}")
 
     if amount_of_typos > 0.05 or perplexity > 50:
       print("text written by human")
     else:
       print("text is ai generated")
 
-text1 = "As the sun set over the horizon, the children returned home from the park, their laughter echoing in the warm evening air."
-text2 = "This text was written by human please believe me"
-check_if_text_is_ai_generated(text1)
-check_if_text_is_ai_generated(text2)
+check_if_text_is_ai_generated("the quick brown fox jumps over the lazy dog")
+check_if_text_is_ai_generated("This text was written by human please believe me")
